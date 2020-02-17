@@ -4,17 +4,20 @@ import time
 import os
 import json
 
-center_point_address = 'Friendship Hospital for Animals  4105 Brandywine St NW Washington, DC 20016'
+center_point_address = 'Urja Towers, Gh8, Pragati Hills Society, Sector 47, Gurugram, Haryana 122001'
+
+
+# The below keywords are to be used when you want to know locations near you rather then the center point address.
+# keywords_list = ['veterinarian', 'veterinarian near me', 'animal hospital', 'veterinary', 'animal hospital near me',
+#                  'vet clinics near me', 'animal clinic', 'veterinary clinic', 'pet hospital', 'animal medical center',
+#                  'vet clinic', 'veterinary clinic near me', 'animal clinic near me', 'veterinary technician',
+#                  'veterinary hospital', 'pet hospital near me', 'veterinary hospital near me', 'pet doctor',
+#                  'animal doctor', 'emergency veterinarian', 'veterinary pet insurance', 'veterinary doctor',
+#                  'pet doctor near me', 'animal doctor near me', 'veterinary physician', 'veterinarian house calls',
+#                  '24 hour veterinary clinic near me', 'veterinary service', '24 hrs veterinary clinic',
+#                  'vet clinic services', 'animal clinic services']
 
 # These Keywords need to be entered by the end user
-keywords_list = ['veterinarian', 'veterinarian near me', 'animal hospital', 'veterinary', 'animal hospital near me',
-                 'vet clinics near me', 'animal clinic', 'veterinary clinic', 'pet hospital', 'animal medical center',
-                 'vet clinic', 'veterinary clinic near me', 'animal clinic near me', 'veterinary technician',
-                 'veterinary hospital', 'pet hospital near me', 'veterinary hospital near me', 'pet doctor',
-                 'animal doctor', 'emergency veterinarian', 'veterinary pet insurance', 'veterinary doctor',
-                 'pet doctor near me', 'animal doctor near me', 'veterinary physician', 'veterinarian house calls',
-                 '24 hour veterinary clinic near me', 'veterinary service', '24 hrs veterinary clinic',
-                 'vet clinic services', 'animal clinic services']
 keywords_list = ['veterinarian', 'animal hospital', 'veterinary', 'vet clinics', 'animal clinic', 'veterinary clinic', 'pet hospital', 'animal medical center',
                  'vet clinic', 'veterinary technician', 'veterinary hospital', 'pet hospital', 'veterinary hospital', 'pet doctor',
                  'animal doctor', 'emergency veterinarian', 'veterinary pet insurance', 'veterinary doctor',
@@ -72,19 +75,19 @@ def parse_places_nearby_data(resp_data):
             print(dist_place)
     return list_places_nearby
 
+# Use this to get the places nearby within 50000m radius if using radius parameter.
+# def get_nearby_places(loc_coord=loc_coord, keywords=keywords, page_token=None):
+#     if page_token:
+#         print('Using Page Token is', page_token)
+#         time.sleep(5)
+#         query_result = gmaps.places_nearby(page_token=page_token)
+#     else:
+#         # query_result = gmaps.places_nearby(location=(str(loc_coord['lat']), str(loc_coord['lng'])), keyword=keywords,
+#         #                                    rank_by='distance')
+#         query_result = gmaps.places_nearby(location=(str(loc_coord['lat']), str(loc_coord['lng'])), radius=50000,
+#                                            keyword=keywords)
 
-def get_nearby_places(loc_coord=loc_coord, keywords=keywords, page_token=None):
-    if page_token:
-        print('Using Page Token is', page_token)
-        time.sleep(5)
-        query_result = gmaps.places_nearby(page_token=page_token)
-    else:
-        # query_result = gmaps.places_nearby(location=(str(loc_coord['lat']), str(loc_coord['lng'])), keyword=keywords,
-        #                                    rank_by='distance')
-        query_result = gmaps.places_nearby(location=(str(loc_coord['lat']), str(loc_coord['lng'])), radius=50000,
-                                           keyword=keywords)
-
-    return query_result
+#     return query_result
 
 
 def get_places(loc_coord=loc_coord, keywords=keywords, page_token=None):
