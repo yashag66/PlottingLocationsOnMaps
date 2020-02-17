@@ -2,7 +2,6 @@ import googlemaps
 import geopy.distance
 import time
 import os
-import json
 
 center_point_address = 'Urja Towers, Gh8, Pragati Hills Society, Sector 47, Gurugram, Haryana 122001'
 
